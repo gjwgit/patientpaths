@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Time-stamp: <Tuesday 2020-07-21 20:51:40 AEST Graham Williams>
+# Time-stamp: <Wednesday 2020-07-22 07:54:38 AEST Graham Williams>
 #
 # Copyright (c) Togaware Pty Ltd. All rights reserved.
 # Licensed under the GPLv3
@@ -44,7 +44,7 @@ mlcat("", f"""\
 The other set of inputs are the proportion of the population in the
 ACT jurisdiction ({round(100*426.7/25359.7)}%), the number of beds in ICU (22),
 the number of beds in wards (448), the number of beds in the emergency
-deprtment (202), and the total number of GPs (2,607).
+department (202), and the total number of GPs (2,607).
 """)
 
 fname = "cohorts4_daily36.xlsx"
@@ -98,7 +98,7 @@ mlask(True, True)
 fname = "results.xlsx"
 
 mlcat("Saving to Spreadsheet", f"""\
-The results are saved to a spreedsheet '{fname}' with a tab for each of the
+The results are saved to a spreadsheet '{fname}' with a tab for each of the
 measures calculated.
 """)
 
