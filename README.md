@@ -66,7 +66,9 @@ Thus a spreadsheet of daily presentations is loaded in this demo,
 having two tabs, one for the mild presentations and another for the
 severe presentations. Each column corresponds to a cohort and each row
 is a successive day.
-
+```
+![](input.png)
+```
 From the dataset we see there are 4 cohorts and presentations are
 provided for 36 days (that's 288 numbers).
 
@@ -139,4 +141,4 @@ The results are saved to a spreadsheet 'results.xlsx' with a tab for
 each of the measures calculated.
 ```
 
-![](libreoffice.png)
+![](output.png)
