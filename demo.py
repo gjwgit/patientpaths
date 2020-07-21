@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Time-stamp: <Tuesday 2020-07-21 20:31:15 AEST Graham Williams>
+# Time-stamp: <Tuesday 2020-07-21 20:40:52 AEST Graham Williams>
 #
 # Copyright (c) Togaware Pty Ltd. All rights reserved.
 # Licensed under the GPLv3
@@ -33,6 +33,7 @@ is provided as input. These are split into mild and severe cases.
 import re
 
 import numpy as np
+import pandas as pd
 
 from pandas       import read_excel
 from patientpaths import outcomes_for_moc
@@ -91,4 +92,16 @@ for i in range(days):
 print("-" * (cohorts*8) + "---")
 
 mlask(True, True)
+
+fname = "results.xlsx"
+
+mlcat("Saving to Spreadsheet", f"""\
+The results are saved to a spreedsheet '{fname}' with a tab for each of the
+measures calculated.
+""")
+
+with pd.ExcelWriter(fname) as writer:
+    for k in list(outcomes.keys()):
+        df = pd.DataFrame(outcomes[k])
+        df.to_excel(writer, sheet_name=k, header=False, index=False)
 
