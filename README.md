@@ -70,6 +70,9 @@ is a successive day.
 From the dataset we see there are 4 cohorts and presentations are
 provided for 36 days (that's 288 numbers).
 
+Each cohort is also identified as at risk or not. For this example
+cohorts 2 and 3 are considered at risk.
+
 Press Enter to continue: 
 
 =============
