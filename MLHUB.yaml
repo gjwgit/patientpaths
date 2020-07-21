@@ -1,0 +1,21 @@
+--- # Patient Pathways
+meta:
+  name         : patientpaths
+  title        : Report patient paths for specific scenarios.
+  keywords     : health, patient pathways 
+  version      : 0.0.1
+  languages    : py
+  display      : demo
+  license      : gplv3
+  author       : Graham.Williams@togaware.com
+  url          : https://github.com/gjwgit/patientpaths
+dependencies:
+  python3:
+    - numpy
+    - pandas
+  files:
+    - README.md
+    - demo.py
+    - cohorts4_daily36.xlsx
+commands:
+  demo : Demonstrate character recognition from images.
