@@ -130,4 +130,11 @@ cohort.
 -----------------------------------
 
 Press Enter to continue: 
+
+=====================
+Saving to Spreadsheet
+=====================
+
+The results are saved to a spreedsheet 'results.xlsx' with a tab for
+each of the measures calculated.
 ```
