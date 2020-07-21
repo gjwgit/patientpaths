@@ -34,11 +34,11 @@ $ ml demo patientpaths
 		
 - Command line tools:
 
-  TBA
+  TBD
 
 ## Command Line Tools
 
-TBA
+TBD
 
 ## Demonstration
 
