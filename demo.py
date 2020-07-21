@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Time-stamp: <Tuesday 2020-07-21 20:28:31 AEST Graham Williams>
+# Time-stamp: <Tuesday 2020-07-21 20:31:15 AEST Graham Williams>
 #
 # Copyright (c) Togaware Pty Ltd. All rights reserved.
 # Licensed under the GPLv3
@@ -61,6 +61,9 @@ a successive day.
 
 From the dataset we see there are {cohorts} cohorts and presentations are
 provided for {days} days (that's {cohorts*days*2} numbers).
+
+Each cohort is also identified as at risk or not. For this example cohorts 2 and 3
+are considered at risk.
 """)
 
 outcomes = outcomes_for_moc("cohort", mild, severe, risk)
