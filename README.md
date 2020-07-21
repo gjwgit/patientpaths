@@ -43,9 +43,9 @@ TBA
 ## Demonstration
 
 ```console
-=============
-Patient Paths
-=============
+================
+Patient Pathways
+================
 
 Runs a model of care algorithm to identify outcomes from a configured
 health  care system. The input to the model consists of N cohorts
@@ -54,7 +54,13 @@ does not really matter.
 
 For each cohort the daily presentations of patients in that cohort
 (i.e., the number of patients arriving each day to the health
-facility)  is provided. These are split into mild and severe cases.
+facility)  is provided as input. These are split into mild and severe
+cases.
+
+The other set of inputs are the proportion of the population in the
+ACT jurisdiction (2%), the number of beds in ICU (22),  the number of
+beds in wards (448), the number of beds in the emergency deprtment
+(202), and the total number of GPs (2,607).
 
 Thus a spreadsheet of daily presentations is loaded in this demo,
 having two tabs, one for the mild presentations and another for the
@@ -121,5 +127,4 @@ cohort.
 -----------------------------------
 
 Press Enter to continue: 
-
 ```
