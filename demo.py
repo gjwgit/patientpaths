@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Time-stamp: <Tuesday 2020-07-21 20:47:38 AEST Graham Williams>
+# Time-stamp: <Tuesday 2020-07-21 20:51:40 AEST Graham Williams>
 #
 # Copyright (c) Togaware Pty Ltd. All rights reserved.
 # Licensed under the GPLv3
@@ -31,6 +31,7 @@ is provided as input. These are split into mild and severe cases.
 
 # Import the required libraries.
 
+import os
 import re
 
 import numpy as np
