@@ -26,7 +26,7 @@ $ ml demo patientpaths
 
 - To install, configure, and run the demo:
 
-		$ ml install   patientpaths
+		$ ml install   gjwgit/patientpaths
 		$ ml configure patientpaths
 		$ ml readme    patientpaths
 		$ ml commands  patientpaths
