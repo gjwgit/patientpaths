@@ -4,7 +4,7 @@ This [MLHub](https://mlhub.ai) package uses the patientpaths package for
 modelling patient pathways through a health care system, particularly
 during a pandemic.
 
-The patientpaths pacakge is available from
+The patientpaths package is available from
 <https://github.com/anu-act-health-covid19-support/patientpaths>.
 
 This MLHub package source code is available from
@@ -59,7 +59,7 @@ cases.
 
 The other set of inputs are the proportion of the population in the
 ACT jurisdiction (2%), the number of beds in ICU (22),  the number of
-beds in wards (448), the number of beds in the emergency deprtment
+beds in wards (448), the number of beds in the emergency department
 (202), and the total number of GPs (2,607).
 
 Thus a spreadsheet of daily presentations is loaded in this demo,
@@ -135,7 +135,7 @@ Press Enter to continue:
 Saving to Spreadsheet
 =====================
 
-The results are saved to a spreedsheet 'results.xlsx' with a tab for
+The results are saved to a spreadsheet 'results.xlsx' with a tab for
 each of the measures calculated.
 ```
 
