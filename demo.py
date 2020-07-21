@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Time-stamp: <Tuesday 2020-07-21 20:40:52 AEST Graham Williams>
+# Time-stamp: <Tuesday 2020-07-21 20:47:38 AEST Graham Williams>
 #
 # Copyright (c) Togaware Pty Ltd. All rights reserved.
 # Licensed under the GPLv3
@@ -13,6 +13,7 @@
 # https://github.com/anu-act-health-covid19-support/patientpaths
 
 from mlhub.pkg import mlask, mlcat, mlpreview
+from mlhub.utils import get_cmd_cwd
 
 mlcat("Patient Pathways", """\
 Runs a model of care algorithm to identify outcomes from a configured health 
@@ -100,7 +101,7 @@ The results are saved to a spreedsheet '{fname}' with a tab for each of the
 measures calculated.
 """)
 
-with pd.ExcelWriter(fname) as writer:
+with pd.ExcelWriter(os.path.join(get_cmd_cwd(), fname)) as writer:
     for k in list(outcomes.keys()):
         df = pd.DataFrame(outcomes[k])
         df.to_excel(writer, sheet_name=k, header=False, index=False)
