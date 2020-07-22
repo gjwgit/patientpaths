@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Time-stamp: <Wednesday 2020-07-22 07:54:38 AEST Graham Williams>
+# Time-stamp: <Wednesday 2020-07-22 13:45:23 AEST Graham Williams>
 #
 # Copyright (c) Togaware Pty Ltd. All rights reserved.
 # Licensed under the GPLv3
@@ -33,6 +33,7 @@ is provided as input. These are split into mild and severe cases.
 
 import os
 import re
+import sys
 
 import numpy as np
 import pandas as pd
@@ -98,12 +99,17 @@ mlask(True, True)
 fname = "results.xlsx"
 
 mlcat("Saving to Spreadsheet", f"""\
-The results are saved to a spreadsheet '{fname}' with a tab for each of the
+The results can be saved to a spreadsheet '{fname}' with a tab for each of the
 measures calculated.
 """)
 
-with pd.ExcelWriter(os.path.join(get_cmd_cwd(), fname)) as writer:
-    for k in list(outcomes.keys()):
-        df = pd.DataFrame(outcomes[k])
-        df.to_excel(writer, sheet_name=k, header=False, index=False)
+sys.stdout.write("Do you want to save the results [y/N]? ")
+choice = input().lower().strip()
 
+if choice in ("y", "yes"):
+    with pd.ExcelWriter(os.path.join(get_cmd_cwd(), fname)) as writer:
+        for k in list(outcomes.keys()):
+            df = pd.DataFrame(outcomes[k])
+            df.to_excel(writer, sheet_name=k, header=False, index=False)
+
+print()
