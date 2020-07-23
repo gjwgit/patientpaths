@@ -3,7 +3,7 @@ meta:
   name         : patientpaths
   title        : Report patient paths for specific scenarios.
   keywords     : health, patient pathways 
-  version      : 0.0.7
+  version      : 0.0.8
   languages    : py
   display      : demo
   license      : gplv3
