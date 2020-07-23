@@ -70,8 +70,8 @@ the population in the ACT jurisdiction (2%), the number of beds in ICU
 (22), the number of beds in wards (448), the number of beds in the
 emergency department (202), and the total number of GPs (2,607).
 
-Give 4 cohorts and presentations are provided for 36 days we have,
-over the mild/severe cases, 288 input numbers.
+Given 4 cohorts and daily presentations for 36 days we have, over the
+mild/severe cases, 288 inputs.
 
 Each cohort is also identified as at risk or not. For this example
 cohorts 2 and 3 are considered at risk (the risk vector is 0,2,2,0,
