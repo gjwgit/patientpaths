@@ -48,13 +48,13 @@ Patient Pathways
 ================
 
 Runs a model of care algorithm to identify outcomes from a configured
-health  care system. The input to the model consists of N cohorts
-(e.g., age groups,  gender, socio-economic, etc.). What the cohort is
+health care system. The input to the model consists of N cohorts
+(e.g., age groups, gender, socio-economic, etc.). What the cohort is
 does not really matter.
 
 For each cohort the daily presentations of patients in that cohort
 (i.e., the number of patients arriving each day to the health
-facility)  is provided as input. These are split into mild and severe
+facility) is provided as input. These are split into mild and severe
 cases.
 
 For this demo a spreadsheet of daily presentations is loaded. The
