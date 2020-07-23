@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Time-stamp: <Wednesday 2020-07-22 13:45:23 AEST Graham Williams>
+# Time-stamp: <Thursday 2020-07-23 14:33:32 AEST Graham Williams>
 #
 # Copyright (c) Togaware Pty Ltd. All rights reserved.
 # Licensed under the GPLv3
@@ -23,6 +23,11 @@ gender, socio-economic, etc.). What the cohort is does not really matter.
 For each cohort the daily presentations of patients in that cohort 
 (i.e., the number of patients arriving each day to the health facility) 
 is provided as input. These are split into mild and severe cases.
+
+For this demo a spreadsheet of daily presentations is loaded. The spreadsheet
+has two workbooks (tabs), one for the mild presentations and another for the
+severe presentations. Each column corresponds to a cohort and each row is
+a successive day. No headers are used in the spreadsheet.
 """)
 
 #----------------------------------------------------------------------
@@ -37,20 +42,26 @@ import sys
 
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from pandas       import read_excel
 from patientpaths import outcomes_for_moc
 
-mlcat("", f"""\
-The other set of inputs are the proportion of the population in the
-ACT jurisdiction ({round(100*426.7/25359.7)}%), the number of beds in ICU (22),
-the number of beds in wards (448), the number of beds in the emergency
-department (202), and the total number of GPs (2,607).
-""")
+#-----------------------------------------------------------------------
+# Read from Spreadsheet
+#-----------------------------------------------------------------------
 
 fname = "cohorts4_daily36.xlsx"
 mild   = np.asarray(read_excel(fname, sheet_name="mild", header=None).T)
 severe = np.asarray(read_excel(fname, sheet_name="severe", header=None).T)
+
+mlcat("", f"""\
+The other set of inputs (currently hard-coded) are the proportion 
+of the population in the ACT jurisdiction ({round(100*426.7/25359.7)}%),
+the number of beds in ICU (22),
+the number of beds in wards (448), the number of beds in the emergency
+department (202), and the total number of GPs (2,607).
+""")
 
 risk = np.array([0, 2, 2, 0])
 
@@ -58,16 +69,13 @@ cohorts = mild.shape[0]
 days = mild.shape[1]
 
 mlcat("", f"""\
-Thus a spreadsheet of daily presentations is loaded in this demo,
-having two tabs, one for the mild presentations and another for the
-severe presentations. Each column corresponds to a cohort and each row is
-a successive day.
-
-From the dataset we see there are {cohorts} cohorts and presentations are
-provided for {days} days (that's {cohorts*days*2} numbers).
+Give {cohorts} cohorts and presentations are
+provided for {days} days we have, over the mild/severe cases,
+{cohorts*days*2} input numbers.
 
 Each cohort is also identified as at risk or not. For this example cohorts 2 and 3
-are considered at risk.
+are considered at risk (the risk vector is 0,2,2,0, and interpreted as Boolean ">1"
+though probably better to actually use Booleans in the code).
 """)
 
 outcomes = outcomes_for_moc("cohort", mild, severe, risk)
@@ -96,11 +104,16 @@ print("-" * (cohorts*8) + "---")
 
 mlask(True, True)
 
+#-----------------------------------------------------------------------
+# Save to Spreadsheet
+#-----------------------------------------------------------------------
+
 fname = "results.xlsx"
 
 mlcat("Saving to Spreadsheet", f"""\
-The results can be saved to a spreadsheet '{fname}' with a tab for each of the
-measures calculated.
+The results can be saved to a spreadsheet '{fname}' with a workbook (tab) for each of the
+measures listed above. From this spreadsheet it is straightforward for spreadsheet jockeys
+to create any required plots.
 """)
 
 sys.stdout.write("Do you want to save the results [y/N]? ")
@@ -111,5 +124,27 @@ if choice in ("y", "yes"):
         for k in list(outcomes.keys()):
             df = pd.DataFrame(outcomes[k])
             df.to_excel(writer, sheet_name=k, header=False, index=False)
-
 print()
+
+#-----------------------------------------------------------------------
+# Plot
+#-----------------------------------------------------------------------
+
+measure = "deaths"
+
+mlcat("Generating Plots", f"""\
+Pltos can be created from the input and output datasets.
+As a simple example we plot the Expected Daily {measure.capitalize()}
+
+Type Ctrl-W to close the plot.
+""")
+            
+ds = np.asarray(outcomes[measure]).T
+plt.figure(figsize=(10,5))
+for i in range(len(ds)): 
+    plt.plot(ds[i], label=1+i)
+plt.legend(title="Cohorts")
+plt.title(f"Expected Daily {measure.capitalize()}")
+plt.show()
+
+mlask(end=True)
