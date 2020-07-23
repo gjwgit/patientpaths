@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Time-stamp: <Thursday 2020-07-23 14:46:16 AEST Graham Williams>
+# Time-stamp: <Thursday 2020-07-23 14:48:52 AEST Graham Williams>
 #
 # Copyright (c) Togaware Pty Ltd. All rights reserved.
 # Licensed under the GPLv3
@@ -69,9 +69,9 @@ cohorts = mild.shape[0]
 days = mild.shape[1]
 
 mlcat("", f"""\
-Give {cohorts} cohorts and presentations are
-provided for {days} days we have, over the mild/severe cases,
-{cohorts*days*2} input numbers.
+With {cohorts} cohorts and daily presentations
+for {days} days we have, over the mild/severe cases,
+{cohorts*days*2} inputs.
 
 Each cohort is also identified as at risk or not. For this example cohorts 2 and 3
 are considered at risk (the risk vector is 0,2,2,0, and interpreted as Boolean ">1"
